@@ -8,7 +8,42 @@
     <title>ppb</title>
     
 </head>
-<body>
-    <script src="app.js"></script>
-</body>
+<style>
+    #counter {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+  </head>
+  <body>
+  <div id="counter">0</div>
+  
+  <script>
+    // 시작 숫자와 종료 숫자 설정
+    con startNumber = 0;
+    con endNumber = 100;
+  
+    // 카운트 간격(ms) 설정
+    con interval = 10; // 0.1초마다 카운트
+  
+    con currentNumber = startNumber;
+    con counterElement = document.getElementById('counter');
+  
+    function count() {
+      counterElement.textContent = currentNumber;
+      currentNumber++;
+      if (currentNumber <= endNumber) {
+        setTimeout(count, interval);
+      }
+    }
+  
+    // 카운트 시작
+    count();
+  </script>
+  
+  </body>
+  </html>
+<script src="app.js"></script>
+
 </html>
