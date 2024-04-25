@@ -1,3 +1,3 @@
-const age = prompt("How old are you?")
+const ppbs = document.getElementsByClassName("ppb");
 
-console.log(age)
+ppbs
