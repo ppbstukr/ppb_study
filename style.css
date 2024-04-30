@@ -1,3 +1,9 @@
 body{
     background: #bbb;
 }
+div { 
+    color: blue;
+}
+.clicked{
+    color:tomato;
+}
