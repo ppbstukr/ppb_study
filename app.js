@@ -1,7 +1,6 @@
-const ppb = document.querySelector("#title");
+const loginForm = document.querySelector("#login-form")
+const loginInput = loginForm.querySelector("input")
+const loginButton = loginForm.querySelector("button")
+function(){
 
-function handleTitleClick(){
-  ppb.classList.toggle("clicked")
 };
-
-ppb.addEventListener("click", handleTitleClick);
