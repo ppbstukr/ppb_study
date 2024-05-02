@@ -4,125 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
   </head>
-  <style>
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    .start_exp {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    .start_exp button {
-      cursor: pointer;
-      width: 550px;
-      height: 300px;
-      font-size: 50px;
-    }
-    .start_exp button:nth-child(2) {
-      margin: 20px 0;
-    }
-    .user_regis_modal {
-      width: 100vh;
-      height: 80vh;
-      background: rgb(218, 218, 218);
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      border: 2px solid #000;
-    }
-    .user_input_box {
-      padding: 30px 50px;
-      border-right: thin solid #b3b3b3;
-    }
-    .user_input_box > div {
-      margin: 30px 0;
-    }
-    .user_regis_modal_wrap {
-      display: flex;
-      height: 100%;
-    }
-    .user_regis_modal_wrap .user_input_box {
-      flex: 1;
-    }
-    .user_regis_modal_wrap .user_data_box {
-      flex: 2;
-    }
-    .user_regis_modal input {
-      border: 1px solid #b3b3b3;
-      padding: 5px;
-      outline: none;
-    }
-    .user_regis_modal_btn {
-      display: flex;
-      justify-content: center;
-    }
-    .user_regis_modal_btn button {
-      font-size: 20px;
-      width: 110px;
-      height: 110px;
-      /* padding: 20px; */
-      border: 1px solid #b3b3b3;
-      cursor: pointer;
-    }
-    .user_regis_modal_btn button span {
-      display: block;
-    }
-    .user_regis_modal_btn button:nth-child(2) {
-      margin: 0 3px;
-    }
-    .user_data_box {
-      padding: 30px 50px;
-    }
-    .user_data_box table {
-      width: 100%;
-      border-collapse: collapse;
-      background: #fff;
-      margin-top: 20px;
-    }
-    .user_data_box table thead {
-      background: #eee;
-    }
-    .user_data_box table tr td {
-      border: 1px solid #b3b3b3;
-      padding: 5px;
-    }
-    .modal_del_btn {
-      padding: 5px;
-      height: 20px;
-      border: 2px solid;
-      border-top: none;
-      border-right: none;
-      cursor: pointer;
-    }
-    .user_data_select_apply {
-      margin-top: 20px;
-      display: flex;
-      justify-content: flex-end;
-    }
-    .user_data_select_apply button {
-      font-size: 20px;
-      border: 1px solid #b3b3b3;
-      padding: 5px 10px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-    }
-  </style>
+  
   <body>
-
     <div class="start_exp">
       <button class="exp_start_btn"><img src="/img/icon01.png" alt="">시작하기</button>
       <button class="exp-end_btn"><img src="/img/icon02.png" alt="">종료하기</button>
       <button class="user_regis"><img src="/img/icon03.png" alt="">사용자등록</button>
-
     </div>
     <div class="user_regis_modal">
       <div class="user_regis_modal_wrap">
