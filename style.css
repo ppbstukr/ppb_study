@@ -1,3 +1,4 @@
+<<<<<<< HEAD
     html,
     body {
       margin: 0;
@@ -107,3 +108,14 @@
       display: flex;
       align-items: center;
     }
+=======
+body{
+    background: #bbb;
+}
+div { 
+    color: blue;
+}
+.clicked{
+    color:tomato;
+}
+>>>>>>> 7940a498afe8bf2644f25edc25140aeafcfe12c4
