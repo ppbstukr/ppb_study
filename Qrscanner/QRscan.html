@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR 코드 스캐너</title>
+</head>
+<body>
+  <p><video id="preview" width="720" height="480"></video></p>
+  <div style="text-align: center;">
+    <button id="openBtn">카메라 켜기</button>
+    <button id="closeBtn" disabled>카메라 끄기</button>
+  </div>
+</body>
+<script src="/Qrscanner/qr-scanner.min.js"></script>
+<script>
+  let streamVideo;
+  let qrScanner;
+
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+    alert("미디어 장치가 지원되지 않습니다.");
+  } else {
+    document.getElementById("openBtn").addEventListener('click', cameraOn);
+    document.getElementById("closeBtn").addEventListener('click', cameraOFF);
+  }
+
+  function cameraOn() {
+    cameraOFF();
+    navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
+      streamVideo = stream;
+      const cameraView = document.getElementById("preview");
+      cameraView.srcObject = stream;
+      cameraView.play();
+
+      qrScanner = new QrScanner(cameraView, result => {
+        console.log(result);
+        window.location.href = result; // QR 코드에서 추출한 링크로 이동
+      });
+      qrScanner.start();
+
+      document.getElementById("openBtn").disabled = true;
+      document.getElementById("closeBtn").disabled = false;
+    }).catch(error => {
+      console.error("미디어 장치 접근 오류:", error);
+      alert("미디어 장치 접근 오류: " + error.message);
+    });
+  }
+
+  function cameraOFF() {
+    if (streamVideo) {
+      const tracks = streamVideo.getTracks();
+      tracks.forEach(track => track.stop());
+      streamVideo = null;
+
+      if (qrScanner) {
+        qrScanner.stop();
+        qrScanner.destroy();
+        qrScanner = null;
+      }
+
+      const cameraView = document.getElementById("preview");
+      cameraView.srcObject = null;
+
+      document.getElementById("openBtn").disabled = false;
+      document.getElementById("closeBtn").disabled = true;
+    }
+  }
+</script>
+</html>
