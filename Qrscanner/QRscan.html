@@ -12,20 +12,22 @@
     <button id="closeBtn" disabled>카메라 끄기</button>
   </div>
 </body>
-<script src="/Qrscanner/qr-scanner.min.js"></script>
-<script>
+<!-- 최신 QrScanner 라이브러리 CDN 추가 -->
+<script type="module">
+  import QrScanner from 'https://unpkg.com/qr-scanner/qr-scanner.min.js';
+
   let streamVideo;
   let qrScanner;
 
   if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
     alert("미디어 장치가 지원되지 않습니다.");
   } else {
-    document.getElementById("openBtn").addEventListener('click', cameraOn);
-    document.getElementById("closeBtn").addEventListener('click', cameraOFF);
+    document.getElementById("openBtn").addEventListener('click', 카메라켜기);
+    document.getElementById("closeBtn").addEventListener('click', 카메라끄기);
   }
 
-  function cameraOn() {
-    cameraOFF();
+  function 카메라켜기() {
+    카메라끄기();
     navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
       streamVideo = stream;
       const cameraView = document.getElementById("preview");
@@ -46,7 +48,7 @@
     });
   }
 
-  function cameraOFF() {
+  function 카메라끄기() {
     if (streamVideo) {
       const tracks = streamVideo.getTracks();
       tracks.forEach(track => track.stop());
