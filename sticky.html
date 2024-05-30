@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Element within Section</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    padding: 10px;
+}
+
+.content {
+    margin: 20px 0;
+}
+
+.sticky-container {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px;
+    background-color: #f4f4f4;
+    margin-bottom: 200px; /* 다른 컨텐츠와의 간격을 위해 설정 */
+}
+
+.sticky-element {
+    width: auto;
+    padding: 10px;
+    background-color: #ddd;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 50%; /* 스크롤 시, 상단에서의 고정 위치를 지정 */
+    transform: translateY(-50%);
+}
+
+.main-content {
+    flex: 1;
+    padding: 10px;
+    margin-left: 1rem;
+}
+
+p {
+    margin-bottom: 20px;
+    white-space: pre-line;
+    word-break: break-all;
+}
+
+</style>
+<body>
+    <header>Header Content</header>
+    <main>
+        <section class="content">
+            <p>Some content before the sticky section...</p>
+            <!-- 많은 컨텐츠를 넣어 스크롤이 발생하도록 합니다. -->
+            <div class="sticky-container">
+                <aside class="sticky-element">
+                    Sticky Element
+                </aside>
+                <div class="main-content">
+                    <!-- 많은 컨텐츠를 넣어 스크롤이 발생하도록 합니다. -->
+                    <p>...Content......Content......Content......Content......Content......Content......Content......Content......Content......Content......Content......Content......Content......Content......Content......Content......Content......Content......Content......Content......Content......Content......Content...</p>
+                </div>
+            </div>
+            <p>Some content after the sticky section...</p>
+        </section>
+    </main>
+<!-- Code injected by live-server -->
+
+</body>
+</html>
